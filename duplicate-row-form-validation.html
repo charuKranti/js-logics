@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){
+
+    $('button').click(function(e){
+e.preventDefault();
+    var len = $('input').length,i,k;
+    $('input').css({'border':'solid 1px #888'})
+
+    for(i=0; i < len; i++){
+      var v = $('input:eq('+ i +')').val();
+      for( k=0; k < i; k++ ){
+        var s = $('input:eq('+ k +')').val();
+        if( s == v ){
+          $('input:eq('+ i +')').css({'border':'solid 1px #F00'});
+          $('input:eq('+ k +')').css({'border':'solid 1px #F00'});
+          return false;
+        }
+       }
+     }
+  })
+
+})
+</script>
+</head>
+<body>
+
+<form name="myForm" id="myForm">
+   <input type="text">
+   <input type="text">
+   <input type="text">
+   <input type="text">
+   <button>Click</button>
+</form>
+
+</body>
+</html>
